@@ -1,0 +1,3 @@
+If you want to enter the dockerfile ->  docker exec -it test-db-1 mysql -u testuser -p
+passward : "testpass"
+To use a db -> USE dbname;
