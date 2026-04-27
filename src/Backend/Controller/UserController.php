@@ -2,33 +2,27 @@
 
 namespace App\Controller;
 
-use App\Model\User;
+use App\Service\UserService;
 
 class UserController {
 
+    private UserService $service;
+
+    public function __construct() {
+        $this->service = new UserService();
+    }
+
+    //POST http://localhost:8081/user
     public function store() {
+        $this->service->createUser();
+    }
 
-        header('Content-Type: application/json');
+    //GET http://localhost:8081/users
+    public function index() {
+        $users = $this->service->getAllUsers();
 
-        $input = json_decode(file_get_contents("php://input"), true);
-
-        if (!isset($input['name'], $input['email'], $input['password'])) {
-            http_response_code(400);
-            echo json_encode(["error" => "Missing fields"]);
-            return;
-        }
-
-        $ok = User::create(
-            $input['name'],
-            $input['email'],
-            $input['password']
-        );
-
-        if ($ok) {
-            echo json_encode(["message" => "User created"]);
-        } else {
-            http_response_code(500);
-            echo json_encode(["error" => "Failed to create user"]);
-        }
+        echo json_encode([
+            "data" => $users
+        ]);
     }
 }

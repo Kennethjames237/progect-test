@@ -22,4 +22,13 @@ class User {
             'password' => password_hash($password, PASSWORD_BCRYPT)
         ]);
     }
+
+    public static function getAll() {
+        $pdo = Dbconnection::connect();
+
+        $stmt = $pdo->prepare("SELECT id, name, email FROM users");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

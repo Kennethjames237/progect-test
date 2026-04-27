@@ -25,6 +25,7 @@ class ComposerStaticInit128e2cd072a8d8dde7f757244cb2e19a
         'App\\Config\\Dbconnection' => __DIR__ . '/../..' . '/Config/Dbconnection.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/Controller/UserController.php',
         'App\\Model\\User' => __DIR__ . '/../..' . '/Model/User.php',
+        'App\\Service\\UserService' => __DIR__ . '/../..' . '/Service/UserService.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

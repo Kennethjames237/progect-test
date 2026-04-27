@@ -10,5 +10,6 @@ return array(
     'App\\Config\\Dbconnection' => $baseDir . '/Config/Dbconnection.php',
     'App\\Controller\\UserController' => $baseDir . '/Controller/UserController.php',
     'App\\Model\\User' => $baseDir . '/Model/User.php',
+    'App\\Service\\UserService' => $baseDir . '/Service/UserService.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
